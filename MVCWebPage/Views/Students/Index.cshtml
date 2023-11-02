@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebApplication2.Models.StudentsModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--Div Pesquisa-->
+<div id="search_container">
+    <!--<form asp-controller="Students" asp-action="Search" method="get" id="search_container">
+        </form>-->
+    <input type="text" class="search_input" placeholder="Search" name="value">
+    <button type="submit" id="search_button" value="Submit">Search</button>
+    <button id="add_student_button" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
+
+</div>
+
+<div id="tableStudentIndex">
+
+    <table class="table" id="tableStudents">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div id="next_pages_button">
+    <button class="page_button_control" id="previous_button" onclick="previousPage()">Previous</button>
+
+    <div class="pageIndex"></div>
+
+    <button class="page_button_control" id="next_button" onclick="nextPage()">Next</button>
+</div>
