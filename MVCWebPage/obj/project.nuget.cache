@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BiA6+PEWcZ27torc6+7G9Pvd9Er9myhL9YHjCT4RLZt1dzTDgNw+hyjG/YBA/3nlq2lL1DORj0c+eQZMRysa2A==",
+  "dgSpecHash": "sAE7xOUdMBgNjb7yyWiHsC0nBXjiWo8YUDJa6eRHKdnGve3jereo71x4tQDCugi+3iJD1TYWx7DfmVyj3sCUOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vitam\\Desktop\\Web\\C#\\WebApplication2\\WebApplication2.csproj",
+  "projectFilePath": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\WebApplication2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vitam\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\vitam\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

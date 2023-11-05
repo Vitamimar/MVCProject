@@ -5,14 +5,16 @@
 }
 
 <!--Div Pesquisa-->
-<div id="search_container">
-    <!--<form asp-controller="Students" asp-action="Search" method="get" id="search_container">
-        </form>-->
-    <input type="text" class="search_input" placeholder="Search" name="value">
-    <button type="submit" id="search_button" value="Submit">Search</button>
-    <button id="add_student_button" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
-
+<div id ="search_container">
+    <div>
+        <form asp-controller="Students" asp-action="Search" method="get">
+            <input type="text" class="search_input" placeholder="Search" name="searchTerm">
+            <button type="submit" id="search_button">Search</button>
+        </form>
+    </div>
+    <button class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
 </div>
+
 
 <div id="tableStudentIndex">
 

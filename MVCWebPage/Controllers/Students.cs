@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Models;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System;
+using System.Xml.Linq;
 
 
 namespace WebApplication2.Controllers
@@ -88,20 +90,29 @@ namespace WebApplication2.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
         [HttpGet]
         public ActionResult Search(string searchTerm)
         {
+            List<StudentsModel> searchedStudents = new List<StudentsModel>();
+
+
             if (searchTerm != null)
             {
-                var searchStudent = students.Where(s => s.Name.Contains(searchTerm) || s.LastName.Contains(searchTerm)).ToList();
-                return View("Index", searchStudent);
+                var searchResult = students.Where(s => s.Name.Contains(searchTerm) || s.LastName.Contains(searchTerm)).ToList();
+                searchedStudents = searchResult.Select(s => new StudentsModel
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    LastName = s.LastName,
+                    Age = s.Age
+                }).ToList();
+                return View("Search", searchResult);
             }
             else
             {
-                // Handle the case when searchTerm is null or empty
                 return RedirectToAction("Index");
             }
         }
-
     }
 }

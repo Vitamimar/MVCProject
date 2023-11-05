@@ -22,18 +22,21 @@ header {
 }
 
 #search_container {
-    width: 80%;
+    width: 83%;
     margin-left: 5em;
     margin-top: 4vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
 }
 
 
 .search_input {
     flex: 1;
+    width: 35em;
     height: 48px;
-    margin-right: 1vw;
+    margin-right: 0.5em;
     border-radius: 5px;
     color: black;
     font-size: large;
@@ -52,6 +55,7 @@ header {
     color: #00A300;
     font-size: medium;
     text-align: center;
+    margin-right: 0.5em;
     padding: 5px 5px 5px 5px;
 }
 
@@ -62,11 +66,10 @@ header {
     }
 
 
-#add_student_button {
+.studentButtons {
     width: 100px;
     height: 48px;
     background: #fff;
-    margin-left: 8px;
     border-radius: 5px;
     border-color: #00A300;
     color: #00A300;
@@ -74,11 +77,11 @@ header {
     text-align: center;
     padding: 0 5px 0 5px;
 }
-    #add_student_button:hover {
-        background: #00A300;
-        border-color: #fff;
-        color: #fff;
-    }
+.studentButtons:hover {
+    background: #00A300;
+    border-color: #fff;
+    color: #fff;
+}
 
 table {
     font-family: sans-serif;

@@ -9550,11 +9550,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vitam\\Desktop\\Web\\C#\\WebApplication2\\WebApplication2.csproj",
+      "projectUniqueName": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "C:\\Users\\vitam\\Desktop\\Web\\C#\\WebApplication2\\WebApplication2.csproj",
+      "projectPath": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\WebApplication2.csproj",
       "packagesPath": "C:\\Users\\vitam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vitam\\Desktop\\Web\\C#\\WebApplication2\\obj\\",
+      "outputPath": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
