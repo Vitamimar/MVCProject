@@ -1,11 +1,10 @@
-﻿@model IEnumerable<WebApplication2.Models.StudentsModel>
+﻿@model WebApplication2.Models.ViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<!--Div Pesquisa-->
-<div id ="search_container">
+<div id="search_container">
     <div>
         <form asp-controller="Students" asp-action="Search" method="get">
             <input type="text" class="search_input" placeholder="Search" name="searchTerm">
@@ -15,29 +14,27 @@
     <button class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
 </div>
 
-
 <div id="tableStudentIndex">
-
     <table class="table" id="tableStudents">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    @Html.DisplayNameFor(model => model.Items[0].Id)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Items[0].Name)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LastName)
+                    @Html.DisplayNameFor(model => model.Items[0].LastName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Age)
+                    @Html.DisplayNameFor(model => model.Items[0].Age)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>
@@ -53,18 +50,35 @@
                         @Html.DisplayFor(modelItem => item.Age)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="table_button">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="table_button">Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<div id="next_pages_button">
-    <button class="page_button_control" id="previous_button" onclick="previousPage()">Previous</button>
 
-    <div class="pageIndex"></div>
+<div id="pagination">
+    @if (Model.CurrentPage > 1)
+    {
+        <a href="?page=@(Model.CurrentPage - 1)&pageSize=@Model.PageSize" class="page_button" id="previous_button">Previous</a>
+    }
 
-    <button class="page_button_control" id="next_button" onclick="nextPage()">Next</button>
+    @for (int i = 1; i <= Math.Ceiling((double)Model.TotalItems / Model.PageSize); i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <a href="?page=@i&pageSize=@Model.PageSize" class="current_page_button">@i</a>
+        }
+        else
+        {
+            <a href="?page=@i&pageSize=@Model.PageSize" class="page_button">@i</a>
+        }
+    }
+
+    @if (Model.CurrentPage < Math.Ceiling((double)Model.TotalItems / Model.PageSize))
+    {
+        <a href="?page=@(Model.CurrentPage + 1)&pageSize=@Model.PageSize" class="page_button" id="next_button" >Next</a>
+    }
 </div>

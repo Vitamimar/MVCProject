@@ -10,6 +10,8 @@ main{
     margin-top: 3em;
 }
 
+
+
 header {
     width: 100%;
     height: 5em;
@@ -22,19 +24,19 @@ header {
 }
 
 #search_container {
-    width: 83%;
-    margin-left: 5em;
+    width: 100%;
+    margin-left: 0em;
     margin-top: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 2em;
 }
 
 
 .search_input {
     flex: 1;
-    width: 35em;
+    width: 40em;
     height: 48px;
     margin-right: 0.5em;
     border-radius: 5px;
@@ -47,7 +49,7 @@ header {
 
 
 #search_button {
-    width: 100px;
+    width: 4.4em;
     height: 48px;
     background: #fff;
     border-radius: 5px;
@@ -67,7 +69,7 @@ header {
 
 
 .studentButtons {
-    width: 100px;
+    width: 4.4em;
     height: 48px;
     background: #fff;
     border-radius: 5px;
@@ -104,33 +106,102 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+
+
+.table_button {
+    font-family: Roboto, sans-serif;
+    font-size: 0.8em;
+    color: #fff;
+    background-color: #0066CC;
+    padding: 0.7em;
+    border: 2px solid #0066cc;
+    border-radius: 0.4em;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .table_button:hover {
+        background-color: #fff;
+        color: #0066cc;
+        border: solid 2px #0066cc;
+    }
+
+
 #next_pages_button {
     margin-top: 20px;
     display: flex;
 }
 
-.page_button_control {
+.page_button {
     padding: 8px 8px;
     background-color: #ffffff;
     color: #1a8bf5;
     font-size: large;
+    text-decoration: none;
+    margin-left: -0.3em;
     border: solid 2px rgba(200, 198, 198, 0.34);
+    cursor: pointer;
 }
 
-    .page_button_control:hover {
-        background-color: #1a8bf5;
-        color: #fff;
-    }
-
-    .page_button_control:active {
+    .page_button:hover {
         background-color: #d0d0d0;
         color: #5f5f5f;
     }
 
+.current_page_button {
+    padding: 8px 8px;
+    background-color: #0066CC;
+    color: #fff;
+    font-size: large;
+    text-decoration: none;
+    margin-left: 0em;
+    border: solid 2px rgba(200, 198, 198, 0.34);
+}
+
 #previous_button {
-    border-radius: 4px 0 0 4px;
+    border-radius: 7px 0 0 7px;
 }
 
 #next_button {
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 7px 7px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .search_input {
+        width: 9em;
+    }
+    #search_container {
+        margin-left: 0em;
+        padding: 0.1em;
+    }
+    .studentButtons {
+        width: 4em;
+        font-size: 14px;
+        padding-left: 1px;
+
+    }
+
+    #search_button {
+        width: 4em;
+        margin-right: 0.5em;
+    }
+
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+    .search_input {
+        width: 20em;
+    }
+
+    #search_container {
+        margin-left: 0em;
+        padding: 0.1em;
+    }
+
+    #search_button {
+        margin-right: 0.5em;
+    }
 }

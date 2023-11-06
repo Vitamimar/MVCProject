@@ -13,11 +13,49 @@ namespace WebApplication2.Controllers
     {
         private static List<StudentsModel> students = new List<StudentsModel>();
 
-        // GET: Students
-        public ActionResult Index()
+        private void SeedStudents()
         {
-            return View(students);
+            if (students.Count() == 0)
+            {
+                for (int i = 1; i <= 50; i++)
+                {
+                    students.Add(new StudentsModel
+                    {
+                        Id = i,
+                        Name = $"Student{i}",
+                        LastName = $"Lastname{i}",
+                        Age = 18 + i
+                    });
+                }
+            }
         }
+
+        // In your constructor or an appropriate initialization point, call the SeedStudents method
+        public Students()
+        {
+            SeedStudents();
+        }
+
+        // GET: Students
+        public IActionResult Index(int page = 1, int pageSize = 10)
+        {
+            List<StudentsModel> studentsToDisplay = new List<StudentsModel>();
+
+            int totalStudents = students.Count;
+            int skip = (page - 1) * pageSize;
+            studentsToDisplay.AddRange(students.Skip(skip).Take(pageSize));
+
+            var viewModel = new ViewModel
+            {
+                Items = studentsToDisplay,
+                TotalItems = totalStudents,
+                CurrentPage = page,
+                PageSize = pageSize
+            };
+
+            return View(viewModel);
+        }
+
 
         // GET: Students/Details/5
         public ActionResult Details(int id)

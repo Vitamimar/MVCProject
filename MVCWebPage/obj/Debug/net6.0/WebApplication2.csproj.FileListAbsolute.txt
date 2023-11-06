@@ -448,3 +448,5 @@ C:\Users\vitam\Desktop\MVCProject\MVCWebPage\obj\Debug\net6.0\refint\WebApplicat
 C:\Users\vitam\Desktop\MVCProject\MVCWebPage\obj\Debug\net6.0\WebApplication2.pdb
 C:\Users\vitam\Desktop\MVCProject\MVCWebPage\obj\Debug\net6.0\WebApplication2.genruntimeconfig.cache
 C:\Users\vitam\Desktop\MVCProject\MVCWebPage\obj\Debug\net6.0\ref\WebApplication2.dll
+C:\Users\vitam\Desktop\MVCProject\MVCWebPage\bin\Debug\net6.0\PagedList.dll
+C:\Users\vitam\Desktop\MVCProject\MVCWebPage\bin\Debug\net6.0\PagedList.Mvc.dll

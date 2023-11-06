@@ -7,4 +7,12 @@
         public string LastName { get; set; }
         public int Age { get; set; }
     }
+
+    public class ViewModel
+    {
+        public List<StudentsModel> Items { get; set; }
+        public int TotalItems { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageSize { get; set; }
+    }
 }
