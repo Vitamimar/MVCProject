@@ -23,6 +23,10 @@ header {
     font-size: small;
 }
 
+footer{
+    margin-bottom: -3em;
+}
+
 #search_container {
     width: 100%;
     margin-left: 0em;
@@ -67,6 +71,9 @@ header {
         color: #fff;
     }
 
+.button_position{
+    margin: 1em  0 !important;
+}
 
 .studentButtons {
     width: 4.4em;
@@ -156,7 +163,7 @@ tr:nth-child(even) {
     color: #fff;
     font-size: large;
     text-decoration: none;
-    margin-left: 0em;
+    margin-left: -0.4em;
     border: solid 2px rgba(200, 198, 198, 0.34);
 }
 

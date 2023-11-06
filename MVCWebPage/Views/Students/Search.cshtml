@@ -7,8 +7,7 @@
 <h1>Search Results</h1>
 
 <div>
-    <button class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
-    <button class="studentButtons" onclick="location.href='@Url.Action("Index", "Students")'">Return</button>
+    <button class="table_button" onclick="location.href='@Url.Action("Index", "Students")'">Return</button>
 </div>
 <table class="table">
     <thead>
@@ -44,8 +43,8 @@
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a asp-action="Edit" asp-route-id="@item.Id" class="table_button">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="table_button">Delete</a>
             </td>
         </tr>
 }
