@@ -130,10 +130,9 @@ namespace WebApplication2.Controllers
 
         [HttpPost]
         [HttpGet]
-        public ActionResult Search(string searchTerm)
+        public ActionResult Search(string searchTerm, int page = 1, int pageSize = 10)
         {
             List<StudentsModel> searchedStudents = new List<StudentsModel>();
-
 
             if (searchTerm != null)
             {
@@ -145,12 +144,35 @@ namespace WebApplication2.Controllers
                     LastName = s.LastName,
                     Age = s.Age
                 }).ToList();
-                return View("Search", searchResult);
+
+                // Calculate the total number of search results
+                int totalStudents = searchedStudents.Count();
+
+                // Calculate the skip and take values for the current page
+                int skip = (page - 1) * pageSize;
+                int take = pageSize;
+
+                // Get the list of students for the current page
+                searchedStudents = searchedStudents.Skip(skip).Take(take).ToList();
+
+                // Create a new SearchResultModel object and set the properties
+                var searchResultModel = new SearchResultModel
+                {
+                    SearchTerm = searchTerm,
+                    Items = searchedStudents,
+                    TotalItems = totalStudents,
+                    CurrentPage = page,
+                    PageSize = pageSize
+                };
+
+                return View("Search", searchResultModel);
             }
             else
             {
                 return RedirectToAction("Index");
             }
         }
+
+
     }
 }
