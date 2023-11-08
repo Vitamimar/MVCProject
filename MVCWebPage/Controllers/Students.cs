@@ -30,7 +30,6 @@ namespace WebApplication2.Controllers
             }
         }
 
-        // In your constructor or an appropriate initialization point, call the SeedStudents method
         public Students()
         {
             SeedStudents();
@@ -145,17 +144,13 @@ namespace WebApplication2.Controllers
                     Age = s.Age
                 }).ToList();
 
-                // Calculate the total number of search results
                 int totalStudents = searchedStudents.Count();
 
-                // Calculate the skip and take values for the current page
                 int skip = (page - 1) * pageSize;
                 int take = pageSize;
 
-                // Get the list of students for the current page
                 searchedStudents = searchedStudents.Skip(skip).Take(take).ToList();
 
-                // Create a new SearchResultModel object and set the properties
                 var searchResultModel = new SearchResultModel
                 {
                     SearchTerm = searchTerm,

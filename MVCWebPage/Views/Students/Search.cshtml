@@ -56,7 +56,9 @@
         </tbody>
     </table>
 </div>
-
+@if(Model.Items.Count() == 0){    
+    <h3>Sem Resultados de Pesquisa!</h3>
+}
 <div id="pagination">
     @if (Model.CurrentPage > 1)
     {
