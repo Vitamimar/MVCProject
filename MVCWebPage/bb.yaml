@@ -15,7 +15,7 @@ spec:
       spec:
          containers:
             - name: bb-site
-              image: mvcproject-server
+              image: getting-started
               imagePullPolicy: Never
 ---
 apiVersion: v1

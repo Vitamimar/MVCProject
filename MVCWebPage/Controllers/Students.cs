@@ -3,56 +3,26 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Models;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using X.PagedList;
 using System;
 using System.Xml.Linq;
-
+using WebApplication2.School_dbModels;
 
 namespace WebApplication2.Controllers
 {
     public class Students : Controller
     {
-        private static List<StudentsModel> students = new List<StudentsModel>();
-
-        private void SeedStudents()
-        {
-            if (students.Count() == 0)
-            {
-                for (int i = 1; i <= 50; i++)
-                {
-                    students.Add(new StudentsModel
-                    {
-                        Id = i,
-                        Name = $"Student{i}",
-                        LastName = $"Lastname{i}",
-                        Age = 18 + i
-                    });
-                }
-            }
-        }
-
-        public Students()
-        {
-            SeedStudents();
-        }
+        List<StudentsModel> students= new List<StudentsModel>();
+        private SchoolDbContext db = new SchoolDbContext();
 
         // GET: Students
-        public IActionResult Index(int page = 1, int pageSize = 10)
+        public IActionResult Index(int? page)
         {
-            List<StudentsModel> studentsToDisplay = new List<StudentsModel>();
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+            var totalStudent = db.People.Where(p => p.Roles == 1);
 
-            int totalStudents = students.Count;
-            int skip = (page - 1) * pageSize;
-            studentsToDisplay.AddRange(students.Skip(skip).Take(pageSize));
-
-            var viewModel = new ViewModel
-            {
-                Items = studentsToDisplay,
-                TotalItems = totalStudents,
-                CurrentPage = page,
-                PageSize = pageSize
-            };
-
-            return View(viewModel);
+            return View(totalStudent.ToPagedList(pageNumber, pageSize));
         }
 
 
@@ -129,43 +99,12 @@ namespace WebApplication2.Controllers
 
         [HttpPost]
         [HttpGet]
-        public ActionResult Search(string searchTerm, int page = 1, int pageSize = 10)
+        public ActionResult Search(string searchterm, int? page)
         {
-            List<StudentsModel> searchedStudents = new List<StudentsModel>();
-
-            if (searchTerm != null)
-            {
-                var searchResult = students.Where(s => s.Name.Contains(searchTerm) || s.LastName.Contains(searchTerm)).ToList();
-                searchedStudents = searchResult.Select(s => new StudentsModel
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    LastName = s.LastName,
-                    Age = s.Age
-                }).ToList();
-
-                int totalStudents = searchedStudents.Count();
-
-                int skip = (page - 1) * pageSize;
-                int take = pageSize;
-
-                searchedStudents = searchedStudents.Skip(skip).Take(take).ToList();
-
-                var searchResultModel = new SearchResultModel
-                {
-                    SearchTerm = searchTerm,
-                    Items = searchedStudents,
-                    TotalItems = totalStudents,
-                    CurrentPage = page,
-                    PageSize = pageSize
-                };
-
-                return View("Search", searchResultModel);
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+            var searchedStudents = db.People.Where(s => s.LastName == searchterm || s.FirstName == searchterm);
+            return View(searchedStudents.ToPagedList(pageNumber, pageSize));
         }
 
 

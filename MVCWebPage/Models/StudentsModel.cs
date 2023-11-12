@@ -1,4 +1,6 @@
-﻿namespace WebApplication2.Models
+﻿using WebApplication2.School_dbModels;
+
+namespace WebApplication2.Models
 {
     public class StudentsModel
     {
@@ -10,7 +12,7 @@
 
     public class ViewModel
     {
-        public List<StudentsModel> Items { get; set; }
+        public List<Person> Items { get; set; }
         public int TotalItems { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; }
@@ -19,7 +21,7 @@
     public class SearchResultModel
     {
         public string SearchTerm { get; set; }
-        public List<StudentsModel> Items { get; set; }
+        public List<Person> Items { get; set; }
         public int TotalItems { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; }
