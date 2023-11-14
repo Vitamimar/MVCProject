@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ed2dPs6mYQ1hvDssMmijc6A6tE6IWfmAT0pgyqU+hsg=",
+  "Hash": "RQeTZBIljzWBbVXWbPtYLov/JhYvLqj4BamD+AkYtLM=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\no-result.svg",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "images/no-result.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\no-result.svg"
     },
     {
       "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\js\\site.js",

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\no-result.svg",
+      "PackagePath": "staticwebassets\\images\\no-result.svg"
+    },
+    {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -146,7 +146,7 @@ tr:nth-child(even) {
     color: #1a8bf5;
     font-size: large;
     text-decoration: none;
-    margin-left: -0.3em;
+    margin-left: -0.1em;
     border: solid 2px rgba(200, 198, 198, 0.34);
     cursor: pointer;
 }
@@ -162,7 +162,7 @@ tr:nth-child(even) {
     color: #fff;
     font-size: large;
     text-decoration: none;
-    margin-left: -0.4em;
+    margin-left: -0.1em;
     border: solid 2px rgba(200, 198, 198, 0.34);
 }
 
@@ -172,6 +172,15 @@ tr:nth-child(even) {
 
 #next_button {
     border-radius: 0 7px 7px 0;
+}
+
+.noResultDiv{
+    display:inline-flex;
+    margin: 3em 0 4em 7.6em;
+}
+
+.notFoundIcon{
+    width: 3em;
 }
 
 @media only screen and (max-width: 768px) {

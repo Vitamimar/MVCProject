@@ -1,5 +1,7 @@
 ﻿@using X.PagedList
+@using WebApplication2.Conversor
 @model X.PagedList.IPagedList<WebApplication2.School_dbModels.Person>
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -14,6 +16,7 @@
     <button class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
 </div>
 
+
 <table class="table">
     <thead>
         <tr>
@@ -27,7 +30,7 @@
                 @Html.DisplayNameFor(model => model.First().LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.First().Birth)
+                Age
             </th>
             <th></th>
         </tr>
@@ -47,7 +50,8 @@
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Birth)
+                    <!--Usa a AgeCalculator para calcular a idade atual, src=/Conversor-->
+                     @Conversor.AgeCalculator(item.Birth)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="table_button">Edit</a>

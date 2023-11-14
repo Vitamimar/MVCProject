@@ -7,12 +7,17 @@ using X.PagedList;
 using System;
 using System.Xml.Linq;
 using WebApplication2.School_dbModels;
+using Microsoft.IdentityModel.Tokens;
+using System.Data;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace WebApplication2.Controllers
 {
     public class Students : Controller
     {
-        List<StudentsModel> students= new List<StudentsModel>();
         private SchoolDbContext db = new SchoolDbContext();
 
         // GET: Students
@@ -41,22 +46,26 @@ namespace WebApplication2.Controllers
         // POST: Students/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(StudentsModel student)
+        public IActionResult Create(Person student)
         {
             if (ModelState.IsValid)
             {
-                student.Id = students.Count() == 0 ? 1 : students.Max(x => x.Id) + 1;
-                students.Add(student);
+                db.People.Add(student);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View();
+            return View(student);
         }
         // GET: Students/Edit/5
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var studentToEdit = students.FirstOrDefault(s => s.Id == id);
+            Person studentToEdit = db.People.Find(id);
+            DbSet<Role> roles = db.Roles;
+            List<Role> rolesList = roles.ToList();
+
+            ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
             return View(studentToEdit);
         }
@@ -64,26 +73,38 @@ namespace WebApplication2.Controllers
         // POST: Students/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(StudentsModel studentToEdit)
+        public ActionResult Edit(Person studentToEdit)
         {
-            var studentToEditModel = students.FirstOrDefault(s => s.Id == studentToEdit.Id);
             if (ModelState.IsValid)
             {
-                studentToEditModel.Name = studentToEdit.Name;
-                studentToEditModel.LastName = studentToEdit.LastName;
-                studentToEditModel.Age = studentToEdit.Age;
+                Person student = db.People.Find(studentToEdit.Id);
+
+                if (student != null)
+                {
+                    studentToEdit.Roles = student.Roles;
+
+                    student.FirstName = studentToEdit.FirstName;
+                    student.LastName = studentToEdit.LastName;
+                    student.Birth = studentToEdit.Birth;
+                    student.Roles = studentToEdit.Roles;
+
+                    db.Entry(student).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
             }
 
-            return RedirectToAction("Index");
-
+            return View(studentToEdit);
         }
+
 
 
         // GET: Students/Delete/5
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var studentToDelete = students.FirstOrDefault(s => s.Id == id);
+            var studentToDelete = db.People.Find(id);
 
             return View(studentToDelete);
         }
@@ -91,12 +112,16 @@ namespace WebApplication2.Controllers
         // POST: Students/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(StudentsModel studentToDelete)
+        public ActionResult Delete(Person studentToDelete)
         {
-            students.RemoveAll(s => s.Id == studentToDelete.Id);
+
+            db.People.Remove(studentToDelete);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [HttpGet]
         [HttpPost]
         [HttpGet]
         public ActionResult Search(string searchterm, int? page)
@@ -104,9 +129,10 @@ namespace WebApplication2.Controllers
             int pageSize = 10;
             int pageNumber = page ?? 1;
             var searchedStudents = db.People.Where(s => s.LastName == searchterm || s.FirstName == searchterm);
+
+            ViewBag.SearchTerm = searchterm;
+
             return View(searchedStudents.ToPagedList(pageNumber, pageSize));
         }
-
-
     }
 }
