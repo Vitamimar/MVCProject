@@ -30,16 +30,21 @@ namespace WebApplication2.Controllers
             return View(totalStudent.ToPagedList(pageNumber, pageSize));
         }
 
-
         // GET: Students/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var student = db.People.FirstOrDefault(s => s.Id == id);
+
+            return View(student);
         }
 
         // GET: Students/Create
         public ActionResult Create()
         {
+            DbSet<Role> roles = db.Roles;
+            List<Role> rolesList = roles.ToList();
+
+            ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
             return View();
         }
 
@@ -48,6 +53,11 @@ namespace WebApplication2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Person student)
         {
+            DbSet<Role> roles = db.Roles;
+            List<Role> rolesList = roles.ToList();
+
+            ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
+
             if (ModelState.IsValid)
             {
                 db.People.Add(student);
@@ -59,45 +69,38 @@ namespace WebApplication2.Controllers
         }
         // GET: Students/Edit/5
         [HttpGet]
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            Person studentToEdit = db.People.Find(id);
+            var person = await db.People.FindAsync(id);
             DbSet<Role> roles = db.Roles;
             List<Role> rolesList = roles.ToList();
 
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
-            return View(studentToEdit);
+            return View(person);
         }
 
         // POST: Students/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Person studentToEdit)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Birth,Roles")] Person person)
         {
+
+
             if (ModelState.IsValid)
             {
-                Person student = db.People.Find(studentToEdit.Id);
+                db.People.Update(person);
+                await db.SaveChangesAsync();
 
-                if (student != null)
-                {
-                    studentToEdit.Roles = student.Roles;
-
-                    student.FirstName = studentToEdit.FirstName;
-                    student.LastName = studentToEdit.LastName;
-                    student.Birth = studentToEdit.Birth;
-                    student.Roles = studentToEdit.Roles;
-
-                    db.Entry(student).State = EntityState.Modified;
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(studentToEdit);
-        }
+            DbSet<Role> roles = db.Roles;
+            List<Role> rolesList = await roles.ToListAsync();
+            ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
+            return View(person);
+        }
 
 
         // GET: Students/Delete/5
@@ -120,8 +123,6 @@ namespace WebApplication2.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        [HttpGet]
         [HttpPost]
         [HttpGet]
         public ActionResult Search(string searchterm, int? page)

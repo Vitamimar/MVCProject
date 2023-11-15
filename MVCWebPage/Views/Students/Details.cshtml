@@ -1,0 +1,41 @@
+﻿@model WebApplication2.School_dbModels.Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div style="display:inline-flex;">
+    <img src="~/images/overview-icon.svg" class="notFoundIcon" />
+    <h1>Details</h1>
+</div>
+
+<div>
+    <h4>Studeny</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Birth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Birth)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <form asp-action="Delete">
+        <a asp-action="Index" class="table_button button_position">Back to List</a>
+    </form>
+</div>

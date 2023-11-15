@@ -10,8 +10,6 @@ main{
     margin-top: 3em;
 }
 
-
-
 header {
     width: 100%;
     height: 5em;
@@ -37,6 +35,11 @@ footer{
     padding: 2em;
 }
 
+
+
+.listActions {
+    width: 14em;
+}
 
 .search_input {
     flex: 1;
@@ -115,6 +118,7 @@ tr:nth-child(even) {
 
 
 .table_button {
+    margin-left: 0.3em;
     font-family: Roboto, sans-serif;
     font-size: 0.8em;
     color: #fff;
@@ -131,6 +135,26 @@ tr:nth-child(even) {
     .table_button:hover {
         background-color: #fff;
         color: #0066cc;
+        border: solid 2px #0066cc;
+    }
+.delete_button {
+    margin-left: 0.3em;
+    font-family: Roboto, sans-serif;
+    font-size: 0.8em;
+    color: #fff;
+    background-color: #dc3545;
+    padding: 0.7em;
+    border: 2px solid #dc3545;
+    border-radius: 0.4em;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .delete_button:hover {
+        background-color: #fff;
+        color: #dc3545;
         border: solid 2px #0066cc;
     }
 

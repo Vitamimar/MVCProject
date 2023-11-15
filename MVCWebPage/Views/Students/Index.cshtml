@@ -53,9 +53,11 @@
                     <!--Usa a AgeCalculator para calcular a idade atual, src=/Conversor-->
                      @Conversor.AgeCalculator(item.Birth)
                 </td>
-                <td>
+                <td class="listActions">
                     <a asp-action="Edit" asp-route-id="@item.Id" class="table_button">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="table_button">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="table_button">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete_button">Delete</a>
+
                 </td>
             </tr>
         }

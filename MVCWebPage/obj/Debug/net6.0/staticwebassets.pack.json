@@ -13,8 +13,40 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\close-round-line-icon.svg",
+      "PackagePath": "staticwebassets\\images\\close-round-line-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\edit-document-icon.svg",
+      "PackagePath": "staticwebassets\\images\\edit-document-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\icons8-edit.svg",
+      "PackagePath": "staticwebassets\\images\\icons8-edit.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\more-options-ellipsis-icon.svg",
+      "PackagePath": "staticwebassets\\images\\more-options-ellipsis-icon.svg"
+    },
+    {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\no-result.svg",
       "PackagePath": "staticwebassets\\images\\no-result.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\overview-icon.svg",
+      "PackagePath": "staticwebassets\\images\\overview-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\plus-round-line-icon.svg",
+      "PackagePath": "staticwebassets\\images\\plus-round-line-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\text-document-add-icon.svg",
+      "PackagePath": "staticwebassets\\images\\text-document-add-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\text-document-remove-icon.svg",
+      "PackagePath": "staticwebassets\\images\\text-document-remove-icon.svg"
     },
     {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\js\\site.js",
