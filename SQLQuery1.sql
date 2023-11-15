@@ -50,12 +50,15 @@ GO
 
 --Classes
 CREATE TABLE Classes(
-CLass_Details int NOT NULL  FOREIGN KEY REFERENCES CLass_Details(Id) ON DELETE CASCADE,
-Students int NOT NULL FOREIGN KEY REFERENCES People(Id) ON DELETE CASCADE,
+CLass_Details int NOT NULL  FOREIGN KEY REFERENCES CLass_Details(Id) ON DELETE NO ACTION,
+Students int NOT NULL FOREIGN KEY REFERENCES People(Id) ON DELETE NO ACTION,
 )
 GO
 
-
+SET IDENTITY_INSERT [dbo].Roles ON;  
+GO  
+insert into Roles	(Id, Labels, Role_Description) values (1, 'Student' , 'Student')
+insert into Roles	(Id, Labels, Role_Description) values (2, 'Teacher' , 'Teacher')
 
 SET IDENTITY_INSERT [dbo].People ON;  
 GO  
@@ -96,3 +99,4 @@ insert into People (Id, FirstName, LastName, Birth, Roles) values (20000, 'Josép
 insert into People (Id, FirstName, LastName, Birth, Roles) values (20000, 'Joséphine', 'Okell', '6/13/2000', 1);
 insert into People (Id, FirstName, LastName, Birth, Roles) values (200000, 'Joséphine', 'Okell', '6/13/2000', 1);
 GO
+

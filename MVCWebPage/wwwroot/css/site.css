@@ -155,7 +155,7 @@ tr:nth-child(even) {
     .delete_button:hover {
         background-color: #fff;
         color: #dc3545;
-        border: solid 2px #0066cc;
+        border: solid 2px #dc3545;
     }
 
 

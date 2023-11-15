@@ -122,7 +122,7 @@ namespace WebApplication2.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int>("Roles")
+                    b.Property<int?>("Roles")
                         .HasColumnType("int");
 
                     b.HasKey("Id")
@@ -204,8 +204,6 @@ namespace WebApplication2.Migrations
                     b.HasOne("WebApplication2.School_dbModels.Role", "RolesNavigation")
                         .WithMany("People")
                         .HasForeignKey("Roles")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK__People__Roles__276EDEB3");
 
                     b.Navigation("RolesNavigation");

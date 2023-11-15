@@ -18,22 +18,25 @@ namespace WebApplication2.Controllers
 {
     public class Students : Controller
     {
-        private SchoolDbContext db = new SchoolDbContext();
+        private static SchoolDbContext _schoolarDbContext = new SchoolDbContext();
 
         // GET: Students
         public IActionResult Index(int? page)
         {
             int pageSize = 10;
             int pageNumber = page ?? 1;
-            var totalStudent = db.People.Where(p => p.Roles == 1);
-
+            var totalStudent = _schoolarDbContext.People.Where(p => p.Roles == 1);
+            /*var totalStudent = from people in _schoolarDbContext.People
+                        join role in _schoolarDbContext.Roles on people.Roles equals role.Id
+                        where role.Labels.Equals("Srudent") 
+                        select people;*/
             return View(totalStudent.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Students/Details/5
         public ActionResult Details(int id)
         {
-            var student = db.People.FirstOrDefault(s => s.Id == id);
+            var student = _schoolarDbContext.People.FirstOrDefault(s => s.Id == id);
 
             return View(student);
         }
@@ -41,7 +44,7 @@ namespace WebApplication2.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            DbSet<Role> roles = db.Roles;
+            DbSet<Role> roles = _schoolarDbContext.Roles;
             List<Role> rolesList = roles.ToList();
 
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
@@ -53,15 +56,15 @@ namespace WebApplication2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Person student)
         {
-            DbSet<Role> roles = db.Roles;
+            DbSet<Role> roles = _schoolarDbContext.Roles;
             List<Role> rolesList = roles.ToList();
 
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
             if (ModelState.IsValid)
             {
-                db.People.Add(student);
-                db.SaveChanges();
+                _schoolarDbContext.People.Add(student);
+                _schoolarDbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -71,8 +74,8 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
-            var person = await db.People.FindAsync(id);
-            DbSet<Role> roles = db.Roles;
+            var person = await _schoolarDbContext.People.FindAsync(id);
+            DbSet<Role> roles = _schoolarDbContext.Roles;
             List<Role> rolesList = roles.ToList();
 
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
@@ -89,13 +92,13 @@ namespace WebApplication2.Controllers
 
             if (ModelState.IsValid)
             {
-                db.People.Update(person);
-                await db.SaveChangesAsync();
+                _schoolarDbContext.People.Update(person);
+                await _schoolarDbContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            DbSet<Role> roles = db.Roles;
+            DbSet<Role> roles = _schoolarDbContext.Roles;
             List<Role> rolesList = await roles.ToListAsync();
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
@@ -107,7 +110,7 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var studentToDelete = db.People.Find(id);
+            var studentToDelete = _schoolarDbContext.People.Find(id);
 
             return View(studentToDelete);
         }
@@ -118,8 +121,8 @@ namespace WebApplication2.Controllers
         public ActionResult Delete(Person studentToDelete)
         {
 
-            db.People.Remove(studentToDelete);
-            db.SaveChanges();
+            _schoolarDbContext.People.Remove(studentToDelete);
+            _schoolarDbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -129,7 +132,7 @@ namespace WebApplication2.Controllers
         {
             int pageSize = 10;
             int pageNumber = page ?? 1;
-            var searchedStudents = db.People.Where(s => s.LastName == searchterm || s.FirstName == searchterm);
+            var searchedStudents = _schoolarDbContext.People.Where(s => s.LastName == searchterm || s.FirstName == searchterm);
 
             ViewBag.SearchTerm = searchterm;
 
