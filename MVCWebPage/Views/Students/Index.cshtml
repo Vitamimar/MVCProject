@@ -8,14 +8,21 @@
 
 <div id="search_container">
     <div>
-        <form asp-controller="Students" asp-action="Search" method="get">
+        <form asp-controller="Students" asp-action="Search" method="get">            
             <input type="text" class="search_input" placeholder="Search" name="searchTerm">
-            <button type="submit" id="search_button">Search</button>
+            <button type="submit" id="search_button" title="Adicionar Estudante">Search</button>
         </form>
     </div>
-    <button class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">Add Student</button>
+
 </div>
 
+<div style="display: inline-flex; margin-top: 20px">
+    <h1>Student Listing</h1>
+    <a class="studentButtons" id="add_student_button" onclick="location.href='@Url.Action("Create", "Students")'" >
+        <span class="plus"> +</span>
+        <span class="text">Add Student</span>
+    </a>
+</div>
 
 <table class="table">
     <thead>
@@ -57,7 +64,6 @@
                     <a asp-action="Edit" asp-route-id="@item.Id" class="table_button">Edit</a>
                     <a asp-action="Details" asp-route-id="@item.Id" class="table_button">Details</a>
                     <a asp-action="Delete" asp-route-id="@item.Id" class="delete_button">Delete</a>
-
                 </td>
             </tr>
         }

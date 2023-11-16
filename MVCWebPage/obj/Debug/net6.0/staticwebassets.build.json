@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GjDN2N/nZmk6C6HHeknR3ZAz5onGoAEeYAxGrUDf6Uo=",
+  "Hash": "XknWZ+5ahlGvq96/waQiv7+8NMYG6cnLV8hSBfsD9ys=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\add-to-queue-svgrepo-com.svg",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "images/add-to-queue-svgrepo-com.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\add-to-queue-svgrepo-com.svg"
     },
     {
       "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\close-round-line-icon.svg",
@@ -202,6 +219,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\plus-round-line-icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search_icon.svg",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "images/search_icon.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\search_icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search-svgrepo-com.svg",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "images/search-svgrepo-com.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\search-svgrepo-com.svg"
     },
     {
       "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\text-document-add-icon.svg",

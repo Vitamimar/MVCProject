@@ -32,6 +32,12 @@
         <dd class = "col-sm-10">
             @Conversor.AgeCalculator(Model.Birth)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Birth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Model.Birth.ToString("yyyy-MM-dd"))
+        </dd>
     </dl>
     
     <form asp-action="Delete">

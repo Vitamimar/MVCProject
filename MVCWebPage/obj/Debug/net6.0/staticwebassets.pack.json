@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\add-to-queue-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\add-to-queue-svgrepo-com.svg"
+    },
+    {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\close-round-line-icon.svg",
       "PackagePath": "staticwebassets\\images\\close-round-line-icon.svg"
     },
@@ -39,6 +43,14 @@
     {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\plus-round-line-icon.svg",
       "PackagePath": "staticwebassets\\images\\plus-round-line-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search-svgrepo-com.svg",
+      "PackagePath": "staticwebassets\\images\\search-svgrepo-com.svg"
+    },
+    {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search_icon.svg",
+      "PackagePath": "staticwebassets\\images\\search_icon.svg"
     },
     {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\text-document-add-icon.svg",

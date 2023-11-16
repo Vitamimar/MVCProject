@@ -25,6 +25,14 @@ footer{
     margin-bottom: -3em;
 }
 
+.table {
+    width: 100% !important;
+}
+.listActions{
+    display: inline-flex;
+    width: 100% !important;
+}
+
 #search_container {
     width: 100%;
     margin-left: 0em;
@@ -35,6 +43,9 @@ footer{
     padding: 2em;
 }
 
+input {
+    padding-left: 35px; 
+}
 
 
 .listActions {
@@ -52,6 +63,10 @@ footer{
     border-color: #c2c2c2;
     box-shadow: none;
     border-style: solid;
+    background-image: url("../images/search-svgrepo-com.svg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2em 1.4em;
 }
 
 
@@ -78,7 +93,7 @@ footer{
     margin: 1em  0 !important;
 }
 
-.studentButtons {
+/*.studentButtons {
     width: 4.4em;
     height: 48px;
     background: #fff;
@@ -93,7 +108,53 @@ footer{
     background: #00A300;
     border-color: #fff;
     color: #fff;
+}*/
+
+.studentButtons {
+    width: auto;
+    height: 32px;
+    max-width: 1em; /* Adjust this value based on your design */
+    transition: max-width 0.5s;
+    background: #fff;
+    border: 2.4px solid #00A300;
+    color: black;
+    text-decoration: none;
+    font-size: 1.8em !important;
+    margin-left: 0.6em !important;
+    margin-top: 9px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
 }
+
+    .studentButtons:hover {
+        max-width: 3000px; /* Adjust this value based on your design */
+        cursor: pointer;
+        color: #00A300;
+    }
+
+.text {
+    color: #00A300;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    padding-right: 15px;
+}
+
+.plus {
+    font-family: 'Sans Serif Collection';
+    font-weight: 500;
+    font-size: xx-large;
+    margin-left: -6px;
+    margin-top: -3px;
+    color: #00A300;
+    padding: 0px 8px;
+    display: flex;
+    align-items: center;
+}
+
 
 table {
     font-family: sans-serif;
@@ -226,7 +287,6 @@ tr:nth-child(even) {
         width: 4em;
         margin-right: 0.5em;
     }
-
 }
 
 
@@ -243,4 +303,5 @@ tr:nth-child(even) {
     #search_button {
         margin-right: 0.5em;
     }
+
 }
