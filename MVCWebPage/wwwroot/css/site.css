@@ -22,15 +22,14 @@ header {
 }
 
 footer{
-    margin-bottom: -3em;
+    margin-bottom: -11em;
 }
 
-.table {
-    width: 100% !important;
-}
-.listActions{
+
+.listActions {
     display: inline-flex;
-    width: 100% !important;
+    margin-right: -2em;
+    width: 7em !important;
 }
 
 #search_container {
@@ -48,9 +47,6 @@ input {
 }
 
 
-.listActions {
-    width: 14em;
-}
 
 .search_input {
     flex: 1;
@@ -113,7 +109,7 @@ input {
 .studentButtons {
     width: auto;
     height: 32px;
-    max-width: 1em; /* Adjust this value based on your design */
+    max-width: 1em; 
     transition: max-width 0.5s;
     background: #fff;
     border: 2.4px solid #00A300;
@@ -130,7 +126,7 @@ input {
 }
 
     .studentButtons:hover {
-        max-width: 3000px; /* Adjust this value based on your design */
+        max-width: 3000px; 
         cursor: pointer;
         color: #00A300;
     }
@@ -156,16 +152,9 @@ input {
 }
 
 
-table {
-    font-family: sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-    margin-top: 15px;
-}
-
 td,
 th {
-    text-align: left;
+    text-align: center;
     scroll-padding-top: 800px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -179,7 +168,7 @@ tr:nth-child(even) {
 
 
 .table_button {
-    margin-left: 0.3em;
+    margin-left: 0.4em;
     font-family: Roboto, sans-serif;
     font-size: 0.8em;
     color: #fff;
@@ -260,13 +249,41 @@ tr:nth-child(even) {
 }
 
 .noResultDiv{
+    width: 100%;
     display:inline-flex;
-    margin: 3em 0 4em 7.6em;
+    justify-content: center;
+    margin-top: 2em;
 }
 
 .notFoundIcon{
     width: 3em;
+    margin-top: 4px;
 }
+
+.retunButton {
+    width: 4em;
+    height: 39px;
+    background: #fff;
+    border: 2.4px solid #00A300;
+    text-decoration: solid;
+    font-size: large !important;
+    color: #00A300;
+    margin-top: 9px;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    border-width: 2.3px;
+    display: inline-flex;
+    align-items: center;
+}
+    .retunButton:hover {
+        cursor: pointer;
+        background-color: #00A300;
+        color: white;
+
+    }
+
+
 
 @media only screen and (max-width: 768px) {
     .search_input {
@@ -282,15 +299,47 @@ tr:nth-child(even) {
         padding-left: 1px;
 
     }
-
     #search_button {
         width: 4em;
         margin-right: 0.5em;
+    }
+
+    .table {
+        height: 22em !important;
+        margin-left: -1.4em;
+       
+    }
+
+    td,th{
+        text-align: left;
+        justify-content: left;
+        font-size: 12px;
+    }
+
+    .table_button {
+        width: 2.2em !important;
+        font-size: 8px !important;
+
+    }
+    .delete_button {
+        width: 2.7em !important;
+        font-size: 8px !important;
+        padding-right: 10px;   
+    }
+
+    .listActions {
+        display: inline-flex;
+        width: 10em !important;
+        margin-left: -1em;
+    }
+    .last_th{
+        width: -20000px !important;
     }
 }
 
 
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
+
     .search_input {
         width: 20em;
     }
@@ -304,4 +353,19 @@ tr:nth-child(even) {
         margin-right: 0.5em;
     }
 
+    .table{
+        margin-left: -1em;
+        width:110%;
+    }
+
+    .table_button, .delete_button{
+        width: 5em !important;
+        font-size: 0.9em;
+    }
+
+    .listActions {
+        display: inline-flex;
+        margin-right: -2em;
+        width: 12em !important;
+    }
 }

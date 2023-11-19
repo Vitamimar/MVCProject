@@ -16,15 +16,23 @@
 </div>
 <div style="display: inline-flex; margin-top: 20px">
     <h1>Student Listing</h1>
-    <button class="studentButtons" id="add_student_button" onclick="location.href='@Url.Action("Create", "Students")'" style="width: 2em !important; font-size:1.7em !important; margin-left:0.6em !important; border-radius: 10px !important;">
-        <span class="icon"> +</span>
+    <a class="studentButtons" onclick="location.href='@Url.Action("Create", "Students")'">
+        <span class="plus"> +</span>
         <span class="text">Add Student</span>
-    </button>
+    </a>
 </div>
-<h1>Pesquisa: @ViewBag.searchterm</h1>
+
+<div>
+    <a class="retunButton" onclick="location.href='@Url.Action("Index", "Students")'">
+        <span>Return</span>
+    </a>
+</div>
+
+
 
 @if (Model.Count > 0)
 {
+    <h1 style="margin-top: 18px;">Pesquisa: @ViewBag.searchterm</h1>
     <table class="table">
         <thead>
             <tr>
@@ -76,6 +84,7 @@ else if (ViewBag.SearchTerm == null)
         <img src="~/images/no-result.svg" alt="No Result" class="notFoundIcon" />
         <h1>There's no results for your search :/ ...</h1>
     </div>
+
 }
 else
 {

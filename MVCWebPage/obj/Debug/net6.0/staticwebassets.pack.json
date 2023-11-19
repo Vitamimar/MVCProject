@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\plus-round-line-icon.svg"
     },
     {
+      "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\return-button.svg",
+      "PackagePath": "staticwebassets\\images\\return-button.svg"
+    },
+    {
       "Id": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search-svgrepo-com.svg",
       "PackagePath": "staticwebassets\\images\\search-svgrepo-com.svg"
     },

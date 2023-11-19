@@ -64,12 +64,13 @@ namespace WebApplication2.Controllers
             if (ModelState.IsValid)
             {
                 _schoolarDbContext.People.Add(student);
-                _schoolarDbContext.SaveChanges();
+                _schoolarDbContext.SaveChanges();  // Use SaveChanges directly without Update
                 return RedirectToAction("Index");
             }
 
             return View(student);
         }
+
         // GET: Students/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
@@ -86,23 +87,27 @@ namespace WebApplication2.Controllers
         // POST: Students/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Birth,Roles")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Birth,Roles")] Person updatedPerson)
         {
-
-
             if (ModelState.IsValid)
             {
-                _schoolarDbContext.People.Update(person);
+
+                var existingPerson = await _schoolarDbContext.People.FindAsync(id);
+
+
+                _schoolarDbContext.Entry(existingPerson).CurrentValues.SetValues(updatedPerson);
+
                 await _schoolarDbContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
+
             }
 
             DbSet<Role> roles = _schoolarDbContext.Roles;
             List<Role> rolesList = await roles.ToListAsync();
             ViewBag.Roles = new SelectList(rolesList, "Id", "Labels");
 
-            return View(person);
+            return View(updatedPerson);
         }
 
 
@@ -111,20 +116,21 @@ namespace WebApplication2.Controllers
         public ActionResult Delete(int id)
         {
             var studentToDelete = _schoolarDbContext.People.Find(id);
-
+            _schoolarDbContext.Entry(studentToDelete).State = EntityState.Detached;
             return View(studentToDelete);
         }
+
 
         // POST: Students/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Person studentToDelete)
         {
-
             _schoolarDbContext.People.Remove(studentToDelete);
             _schoolarDbContext.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         [HttpPost]
         [HttpGet]

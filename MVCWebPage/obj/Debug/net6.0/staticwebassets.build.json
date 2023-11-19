@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XknWZ+5ahlGvq96/waQiv7+8NMYG6cnLV8hSBfsD9ys=",
+  "Hash": "9HIgKhL03bVf09KKH7TIWjcvABiNxUF/8FYuqasQ4kw=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\plus-round-line-icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\return-button.svg",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "images/return-button.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\return-button.svg"
     },
     {
       "Identity": "C:\\Users\\vitam\\Desktop\\MVCProject\\MVCWebPage\\wwwroot\\images\\search_icon.svg",
