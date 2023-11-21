@@ -6,6 +6,7 @@ using System.Collections.Immutable;
 using X.PagedList;
 using System;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Authorization;
 using WebApplication2.School_dbModels;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
@@ -19,6 +20,7 @@ namespace WebApplication2.Controllers
     public class Students : Controller
     {
         private static SchoolDbContext _schoolarDbContext = new SchoolDbContext();
+
 
         // GET: Students
         public IActionResult Index(int? page)
@@ -41,6 +43,7 @@ namespace WebApplication2.Controllers
             return View(student);
         }
 
+        [Authorize(Policy = "EmployeeOnly")]
         // GET: Students/Create
         public ActionResult Create()
         {
@@ -71,6 +74,7 @@ namespace WebApplication2.Controllers
             return View(student);
         }
 
+        [Authorize(Policy = "EmployeeOnly")]
         // GET: Students/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
@@ -111,6 +115,7 @@ namespace WebApplication2.Controllers
         }
 
 
+        [Authorize(Policy = "EmployeeOnly")]
         // GET: Students/Delete/5
         [HttpGet]
         public ActionResult Delete(int id)
