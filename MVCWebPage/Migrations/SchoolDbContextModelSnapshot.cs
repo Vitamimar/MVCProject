@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using WebApplication2.Areas.Identity.Data;
 using WebApplication2.School_dbModels;
 
 #nullable disable
 
 namespace WebApplication2.Migrations
 {
-    [DbContext(typeof(SchoolDbContext))]
+    [DbContext(typeof(UserDbContext))]
     partial class SchoolDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
