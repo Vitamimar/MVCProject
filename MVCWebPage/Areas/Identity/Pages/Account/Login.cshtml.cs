@@ -124,12 +124,21 @@ namespace WebApplication2.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    var claims = new Claim[]
+                    var claims = new List<Claim>
                     {
                         new Claim("amr","pwd"),
                         new Claim("EmployeeNumber","1"),
 
                     };
+                    
+                    var roles = await _signInManager.UserManager.GetRolesAsync(user);
+
+                    if (roles.Any())
+                    {
+                        //Manager, User
+                        var roleClaim = string.Join(",", roles);
+                        claims.Add(new Claim("Roles", roleClaim));
+                }
 
                     await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, claims);
 

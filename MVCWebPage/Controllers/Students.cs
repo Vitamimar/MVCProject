@@ -43,7 +43,7 @@ namespace WebApplication2.Controllers
             return View(student);
         }
 
-        [Authorize(Policy = "EmployeeOnly")]
+        [Authorize(Roles = "Administrator, Manager")]
         // GET: Students/Create
         public ActionResult Create()
         {
@@ -54,6 +54,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator, Manager")]
         // POST: Students/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -74,7 +75,7 @@ namespace WebApplication2.Controllers
             return View(student);
         }
 
-        [Authorize(Policy = "EmployeeOnly")]
+        [Authorize(Roles = "Administrator, Manager")]
         // GET: Students/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
@@ -114,8 +115,7 @@ namespace WebApplication2.Controllers
             return View(updatedPerson);
         }
 
-
-        [Authorize(Policy = "EmployeeOnly")]
+        [Authorize(Roles = "Administrator, Manager")]
         // GET: Students/Delete/5
         [HttpGet]
         public ActionResult Delete(int id)

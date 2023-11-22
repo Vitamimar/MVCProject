@@ -9,12 +9,13 @@ builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<UserDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-AddAuthorizationPolicies(builder.Services);
+AddAuthorizationPolicies();
 
 var app = builder.Build();
 
@@ -42,10 +43,17 @@ app.MapRazorPages();
 
 app.Run();
 
-void AddAuthorizationPolicies(IServiceCollection services)
+void AddAuthorizationPolicies()
 {
-    services.AddAuthorization(options =>
+    builder.Services.AddAuthorization(options =>
     {
         options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
     });
+    
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("RequireAdmin", policy => policy.RequireRole("Administrator"));
+        options.AddPolicy("RequireManager", policy => policy.RequireRole("Manager"));
+    });
+
 }
